@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <h2>Registro de Usuario</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos" formControlName="apellidos" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="correoElectronico">Correo Electrónico</label>
+        <input type="email" class="form-control" id="correoElectronico" formControlName="correoElectronico" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" class="form-control" id="contrasena" formControlName="contrasena" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="tipoUsuario">Tipo de Usuario</label>
+        <select class="form-control" id="tipoUsuario" formControlName="tipoUsuario">
+          <option *ngFor="let tipo of tiposUsuario" [value]="tipo">{{ tipo }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="numeroTelefono">Número de Teléfono</label>
+        <input type="text" class="form-control" id="numeroTelefono" formControlName="numeroTelefono" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="departamentoArea">Departamento/Area</label>
+        <input type="text" class="form-control" id="departamentoArea" formControlName="departamentoArea" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="fechaInicioEmpleo">Fecha de Inicio de Empleo</label>
+        <input type="date" class="form-control" id="fechaInicioEmpleo" formControlName="fechaInicioEmpleo" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="rolPuesto">Rol/Puesto</label>
+        <input type="text" class="form-control" id="rolPuesto" formControlName="rolPuesto" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+  

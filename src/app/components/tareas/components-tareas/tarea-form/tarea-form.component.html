@@ -1,0 +1,47 @@
+<div class="modal-dialog modal-dialog-centered tarea-form-dialog">
+  <div class="modal-content tarea-form-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Crear Tarea</h5>
+      <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cancelarFormulario()"></button> -->
+    </div>
+    <form [formGroup]="tareaForm" (ngSubmit)="crearTarea()" class="needs-validation flex-fill">
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="descripcionTarea" class="form-label">Descripción de la Tarea:</label>
+          <select id="descripcionTarea" class="form-select" formControlName="descripcionTarea" required>
+            <option *ngFor="let tarea of tareasPredefinidas" [value]="tarea.tareaPredefinidaID">{{ tarea.descripcionTarea }}</option>
+          </select>
+          <div class="invalid-feedback">
+            La descripción de la tarea es requerida.
+          </div>
+          
+          <!-- <label for="descripcionTarea" class="form-label">Descripción de la Tarea:</label>
+          <input id="descripcionTarea" type="text" class="form-control" formControlName="descripcionTarea" required>
+          <div class="invalid-feedback">
+            La descripción de la tarea es requerida.
+          </div> -->
+        </div>
+        <div class="mb-3">
+          <label for="tiempoEstimado" class="form-label">Tiempo Estimado (minutos):</label>
+          <input id="tiempoEstimado" type="number" class="form-control" formControlName="tiempoEstimado" required min="1">
+          <div class="invalid-feedback">
+            Ingresa un tiempo estimado válido (mínimo 1 minuto).
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="faseID" class="form-label">Fase ID:</label>
+          <select id="faseID" class="form-select" formControlName="faseID" required>
+            <option *ngFor="let fase of fases" [value]="fase.faseID">{{ fase.nombreFase }}</option>
+          </select>
+          <div class="invalid-feedback">
+            Seleccione una fase.
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancelarFormulario()">Cerrar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!tareaForm.valid">Crear Tarea</button>
+      </div>
+    </form>
+  </div>
+</div>

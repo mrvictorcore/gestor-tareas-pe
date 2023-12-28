@@ -1,0 +1,20 @@
+<app-header *ngIf="isLoggedIn"></app-header>
+
+<!-- Contenedor principal para el contenido -->
+<div class="container my-4">
+  
+  <!-- Contenido principal de la aplicación -->
+  <div class="content mb-3">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Sección de botones, alineados horizontalmente -->
+  <div class="d-flex justify-content-between flex-wrap">
+    <button class="btn btn-primary mb-2" (click)="navigateToTareas()">Mostrar header y footer</button>
+    <button class="btn btn-primary mb-2" (click)="borrarCoockies()">Borrar cookies</button>
+    <button class="btn btn-primary mb-2" (click)="borrarSesionLocalStorage()">Borrar cookies y localStorage</button>
+  </div>
+
+</div>
+
+<app-footer *ngIf="isLoggedIn"></app-footer>
